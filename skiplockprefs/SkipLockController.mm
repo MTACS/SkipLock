@@ -1,5 +1,5 @@
 #include "SkipLockController.h"
-@import SafariServices;
+@import SafariServices; // In app browser
 @interface BSAction : NSObject
 @end
 @interface SBSRelaunchAction : BSAction
@@ -17,7 +17,7 @@
 @interface SLSwitchTableCell ()
 @end 
 
-UIImageView *secondaryHeaderImage;
+UIImageView *secondaryHeaderImage; // fancy animations
 
 @implementation SkipLockController
 - (void)viewDidLoad {
@@ -25,7 +25,7 @@ UIImageView *secondaryHeaderImage;
 	self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,200,200)];
 	self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,200,200)];
     self.headerImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.headerImageView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/SkipLockPrefs.bundle/locked.png"];
+    self.headerImageView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/SkipLockPrefs.bundle/locked.png"]; // load header image
     self.headerImageView.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self.headerView addSubview:self.headerImageView];
@@ -65,7 +65,7 @@ UIImageView *secondaryHeaderImage;
 - (void)checkEligibility {
 	LAContext *context = [LAContext new];
 	NSError *error = nil;
-	if ([context canEvaluatePolicy:kLAPolicyDeviceOwnerAuthentication error:&error] && ![[NSFileManager defaultManager] fileExistsAtPath:@"/var/mobile/Library/Preferences/com.mtac.skiplock.plist"]) {
+	if ([context canEvaluatePolicy:kLAPolicyDeviceOwnerAuthentication error:&error] && ![[NSFileManager defaultManager] fileExistsAtPath:@"/var/mobile/Library/Preferences/com.mtac.skiplock.plist"]) { // Check if device has passcode or biometric security
 		UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"SkipLock is best used on devices without security (TouchID, FaceID, Passcode), but will function on all models." preferredStyle:UIAlertControllerStyleAlert];
 
 		UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {}];
@@ -100,13 +100,12 @@ UIImageView *secondaryHeaderImage;
 		[UIApplication sharedApplication].keyWindow.tintColor = [UIColor systemBlueColor];
 	}
 }
-- (void)source {
+- (void)source { // SafariServices presents in app browser
 	[[NSBundle bundleWithPath:@"/System/Library/Frameworks/SafariServices.framework"] load];
 	if ([SFSafariViewController class] != nil) {
 		SFSafariViewController *safariView = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://github.com/MTACS/SkipLock"]];
 		if ([safariView respondsToSelector:@selector(setPreferredControlTintColor:)]) {
 			safariView.preferredControlTintColor = TINT_COLOR;
-			// safariView.preferredBarTintColor = TINT_COLOR;
 		}
 		[self.navigationController presentViewController:safariView animated:YES completion:nil];
 	} else {
@@ -115,7 +114,7 @@ UIImageView *secondaryHeaderImage;
 }
 @end
 
-@implementation SLSwitchTableCell
+@implementation SLSwitchTableCell // Subclassed tinted switch cell
 - (id)initWithStyle:(int)style reuseIdentifier:(id)identifier specifier:(PSSpecifier *)specifier {
 	self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier specifier:specifier];
 	if (self) {
@@ -127,10 +126,9 @@ UIImageView *secondaryHeaderImage;
 }
 @end
 
-@implementation SLTintedCell
+@implementation SLTintedCell // Subclassed tinted cell
 - (id)initWithSpecifier:(PSSpecifier *)specifier {
 	self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell" specifier:specifier];;
-	
 	return self;
 }
 - (void)tintColorDidChange {
