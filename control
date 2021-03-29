@@ -7,3 +7,4 @@ Maintainer: MTAC
 Author: MTAC
 Section: Tweaks
 Depends: mobilesubstrate (>= 0.9.5000)
+Icon: file:///Library/PreferenceBundles/SkipLockPrefs.bundle/Icon.png
