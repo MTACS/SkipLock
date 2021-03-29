@@ -1,5 +1,5 @@
 # SkipLock
-Code behind SkipLock
+Automatically unlock device when waking screen
 
 <p align="left">
   <a href="https://twitter.com/mtac8" align="center"><img src="https://img.shields.io/twitter/follow/mtac8?style=social"></a>
