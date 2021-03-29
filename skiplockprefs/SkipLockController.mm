@@ -37,6 +37,7 @@ UIImageView *secondaryHeaderImage;
     ]];
 	_table.tableHeaderView = self.headerView;
 	[self playUnlock];
+	[self checkEligibility];
 }
 - (void)playUnlock {
 	secondaryHeaderImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,200,200)];
@@ -60,6 +61,17 @@ UIImageView *secondaryHeaderImage;
 			self.headerImageView.alpha = 0.0;
 		} completion:nil];
 	}];
+}
+- (void)checkEligibility {
+	LAContext *context = [LAContext new];
+	NSError *error = nil;
+	if ([context canEvaluatePolicy:kLAPolicyDeviceOwnerAuthentication error:&error] && ![[NSFileManager defaultManager] fileExistsAtPath:@"/var/mobile/Library/Preferences/com.mtac.skiplock.plist"]) {
+		UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"SkipLock is best used on devices without security (TouchID, FaceID, Passcode), but will function on all models." preferredStyle:UIAlertControllerStyleAlert];
+
+		UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {}];
+		[alert addAction:dismiss];
+    	[self presentViewController:alert animated:YES completion:nil];
+	}
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;

@@ -1,9 +1,10 @@
 Package: com.mtac.skiplock
 Name: SkipLock
-Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Skip lockscreen under certain conditions
 Maintainer: MTAC
 Author: MTAC
 Section: Tweaks
 Depends: mobilesubstrate (>= 0.9.5000)
+Version: 1.0.0-1+debug
+Installed-Size: 440

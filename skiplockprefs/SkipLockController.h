@@ -1,5 +1,6 @@
 #import <Preferences/PSListController.h>
 #import <Preferences/PSTableCell.h>
+#import <LocalAuthentication/LocalAuthentication.h>
 
 #define TINT_COLOR [UIColor colorWithRed: 1.00 green: 0.34 blue: 0.13 alpha: 1.00]
 
