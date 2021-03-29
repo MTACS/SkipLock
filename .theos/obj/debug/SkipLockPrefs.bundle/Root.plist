@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Tweak Settings</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>cellClass</key>
+			<string>SLSwitchTableCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mtac.skiplock</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enable Tweak</string>
+			<key>PostNotification</key>
+			<string>com.mtac.skiplock/preferences.changed</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Conditions</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>cellClass</key>
+			<string>SLSwitchTableCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mtac.skiplock</string>
+			<key>key</key>
+			<string>disableWithMedia</string>
+			<key>label</key>
+			<string>Media</string>
+			<key>PostNotification</key>
+			<string>com.mtac.skiplock/preferences.changed</string>
+			<key>subtitle</key>
+			<string>Disable if media is playing</string>
+			<key>height</key>
+			<string>60</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>cellClass</key>
+			<string>SLSwitchTableCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mtac.skiplock</string>
+			<key>key</key>
+			<string>disableWithLPM</string>
+			<key>label</key>
+			<string>Low Power Mode</string>
+			<key>PostNotification</key>
+			<string>com.mtac.skiplock/preferences.changed</string>
+			<key>subtitle</key>
+			<string>Disable if LPM is enabled</string>
+			<key>height</key>
+			<string>60</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>cellClass</key>
+			<string>SLSwitchTableCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mtac.skiplock</string>
+			<key>key</key>
+			<string>disableWithNotifs</string>
+			<key>label</key>
+			<string>Notifications</string>
+			<key>PostNotification</key>
+			<string>com.mtac.skiplock/preferences.changed</string>
+			<key>subtitle</key>
+			<string>Disable for new notifications</string>
+			<key>height</key>
+			<string>60</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>cellClass</key>
+			<string>SLSwitchTableCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.mtac.skiplock</string>
+			<key>key</key>
+			<string>disableWithNotifs</string>
+			<key>label</key>
+			<string>Do Not Disturb</string>
+			<key>PostNotification</key>
+			<string>com.mtac.skiplock/preferences.changed</string>
+			<key>subtitle</key>
+			<string>Disable when DND is enabled</string>
+			<key>height</key>
+			<string>60</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Other</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>cellClass</key>
+			<string>SLTintedCell</string>
+			<key>label</key>
+			<string>Source Code</string>
+			<key>action</key>
+			<string>source</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerAlignment</key>
+			<string>1</string>
+			<key>footerText</key>
+			<string>SkipLock © MTAC</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>SkipLock</string>
+</dict>
+</plist>
